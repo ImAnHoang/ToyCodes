@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+        integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>Admin ATN Toy</title>
+</head>
+<style>
+    /* Main */
+    .content_top .heading {
+        text-decoration: none;
+        font-family: Arial, Helvetica, sans-serif;
+        color: rgb(27, 117, 133);
+        text-transform: uppercase;
+        font-size: 20px;
+    }
+
+    .content .allproduct {
+        width: 92%;
+        margin: 0 auto;
+    }
+
+    .section .grid_1_of_4 {
+        width: calc(20%- 5px);
+        float: left;
+        margin: 7px;
+        border: 1px solid lightgray;
+        box-sizing: border-box;
+        border-radius: 5px;
+    }
+
+    .section .grid_1_of_4>a>img {
+        width: 212px;
+        height: 212px;
+    }
+
+    .section .grid_1_of_4 {
+        text-align: center;
+        padding: 10px;
+    }
+
+    .section .grid_1_of_4 h2 {
+        font-size: 1.1em;
+        font-weight: normal;
+        text-transform: uppercase;
+        font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+        margin: 10 0px;
+    }
+
+    .section .price-details {
+        width: 100%;
+        border-top: 1px solid red;
+    }
+</style>
+
+<body>
+    {{> header}}
+    <div class="main" style="margin-top: 40px; margin-left: 50px;">
+        <div class="content">
+            <!-- Begin New Product -->
+            <div class="content_top">
+                <div class="heading">
+                    <h3>All Toys</h3>
+                </div>
+                <div class="clear"></div>
+            </div>
+            <!-- Product -->
+            {{#each products}}
+            <div class="allproduct" style="margin-top: 10px; margin-left: 60px;">
+
+                <div class="section group">
+                    <div class="grid_1_of_4 images_1_of_4">
+                        <a href="/preview?id={{_id}}"><img src="images/{{image}}" alt="" /></a>
+                        <h2>{{name}}</h2>
+                        <div class="price-details">
+                            <div class="price-number">
+                                <p><span class="rupees">{{price}} $</span></p>
+                            </div>
+                            <div class="clear"></div>
+                        </div>
+                        <a type="button" style="margin-right: 20px;" class="btn btn-success btn-sm"
+                        href="/edit?id={{_id}}">Edit</a>
+                        <a type="button"  style="background-color: red;" class="btn btn-success btn-sm"
+                         href="/confirm?id={{_id}}">Delete</a>
+                    </div>  
+                </div>
+
+
+            </div>
+            {{/each}}
+        </div>
+    </div>
+
+
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js"
+        integrity="sha384-+YQ4JLhjyBLPDQt//I+STsc9iw4uQqACwlvpslubQzn4u2UU2UFM80nGisd026JF"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+        integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>Confirm to Delete</title>
+</head>
+
+<body>
+    {{> header}}
+    <div class="container">
+        <h2 class="display-4"> Are you sure you want to delete? </h2>
+        <style>
+            body {
+                font-family: 'open sans';
+                overflow-x: hidden;
+                border: 1px solid #dddd;
+                border-radius: 50px;
+            }
+
+            img {
+                max-width: 100%;
+            }
+
+            .card {
+                margin-top: 50px;
+                background: white;
+                padding: 3em;
+                line-height: 1.5em;
+                font-size: 20px;
+            }
+
+            .product-title,
+            .price,
+            .sizes,
+            .colors {
+                text-transform: UPPERCASE;
+                font-weight: bold;
+            }
+
+            .checked,
+            .price span {
+                color: #ff9f1a;
+            }
+        </style>
+
+
+        <div class="preview_main">
+            <div class="preview_content">
+                <!-- Begin New Product -->
+                <div class="preview_top">
+                    <div class="clear"></div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="card">
+                    <div class="container-fliud">
+                        <div class="wrapper row">
+                            <div class="preview col-md-6">
+                                <div class="preview-pic tab-content">
+                                    <div class="tab-pane active" id="pic-1">
+                                        <a href="">
+                                            <img src="images/{{product.image}}"></a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="details col-md-6">
+                                <h3 class="product-title">{{product.name}}</h3>
+                                <h4 class="price">Price: {{product.price}} <span>$</span></h4>
+                                <p class="product-description">Toy details: </p>
+                                <p class="product-description"> {{product.description}}</p>
+                                <div class="buy">
+                                    <form action="/delete?id={{product._id}}" method="post">
+                                        <input type="hidden" name="id" value="{{product.id}}">
+                                        <button type="submit" class="btn btn-danger">Delete</button>
+                                        <a href="/" class="btn btn-info">Cancel</a>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+</body>
+
+</html>

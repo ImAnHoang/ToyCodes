@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+        integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="">
+    <title>New Toy</title>
+</head>
+
+<body>
+
+    {{> header}}
+    <div class="container">
+        <h1 class="display-4">New Toy</h1>
+        <form action="/create" method="post" enctype="multipart/form-data">
+            <div class="form-group">
+                <label for="author" class="font-weight-bold">Name</label>
+                <input type="text" class="form-control" id="name" name="name2" value="{{name}}">
+                <br>
+                <label class="form-label" style="color: red;" for="form3Example4">{{nameError}}</label>
+            </div>
+
+            <div class="form-group">
+                <label for="pages" class="font-weight-bold">Price</label>
+                <input type="text" class="form-control" id="price" name="price2" min="0" value="{{price}}">
+                <br>
+                <label class="form-label" style="color: red;" for="form3Example4">{{priceError}}</label>
+            </div>
+
+            <div class="form-group">
+                <label for="pages" class="font-weight-bold">Description</label>
+                <input type="text" class="form-control" id="description" name="description" min="0"
+                    value="{{description}}">
+                <br>
+                <label class="form-label" style="color: red;" for="form3Example4">{{descriptionError}}</label>
+            </div>
+            <div class="form-group">
+                <label for="pages" class="font-weight-bold">Image</label>
+                <input type="file" class="form-control" id="image" name="image" min="0"
+                    value="{{files}}">
+                <br>
+                <label class="form-label" style="color: red;" for="form3Example4">{{imageError}}</label>
+            </div>
+
+            <button type="submit" class="btn btn-dark">Submit</button>
+        </form>
+    </div>
+
+</body>
